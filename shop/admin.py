@@ -1,3 +1,5 @@
-from django.contrib import admin
+from django.contrib.gis import admin
 
-# Register your models here.
+from .models import Shop
+
+admin.site.register(Shop, admin.OSMGeoAdmin)
