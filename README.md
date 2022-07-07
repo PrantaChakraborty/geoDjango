@@ -1,5 +1,5 @@
 # geoDjango A practice project with geo location.
-* Followed by Official documentation(https://docs.djangoproject.com/en/4.0/ref/contrib/gis/tutorial/#:~:text=GeoDjango%20is%20an%20included%20contrib,OGC%20geometries%20and%20raster%20data.)
+* [Followed by Official documentation](https://docs.djangoproject.com/en/4.0/ref/contrib/gis/tutorial/#:~:text=GeoDjango%20is%20an%20included%20contrib,OGC%20geometries%20and%20raster%20data.)
 * All dependencies installation process are given on the officiatial documentation.
 
 ## Project Description
@@ -31,11 +31,10 @@
 ## Input and Output
 * User need to input his/her address. If nearest location found then a table contain list will be shows will be shown with a map also.
 
-![image](/media/pranta/D/geoDjango/geoDjango/input&table.png)
+![image](input&table.png "Input and table")
 
-
-![image](/media/pranta/D/geoDjango/geoDjango/map.png)
+![image](map.png "Map")
 
 * If not found then an error page will be shown.
 
-![image](/media/pranta/D/geoDjango/geoDjango/Screenshot from 2022-07-07 17-56-02.png)
+![image](not_found.png "Not found")
