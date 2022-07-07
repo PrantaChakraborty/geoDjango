@@ -1,19 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Nearby Shops</title>
-    </head>
-<body>
-    <h1>Nearby Shops</h1>
-    {% if shops %}
-    <ul>
-    {% for shop in shops %}
-        <li>
-        {{ shop.name }}: {{shop.distance}}
-        </li>
-    {% endfor %}
-    </ul>
-    {% endif %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+    <form class="row g-3 mt-4" action="" method="POST">
+    {% csrf_token %}
+    <div class="col-md-5">
+        <label for="address" class="visually-hidden">Address</label>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Enter full address">
+    </div>
+    <div class="col-md-3">
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+    </div>
+</form>
+
+</div>
+{% if shops %}
+
+<div class="container">
+<h5>Showing nearest 10 shops of your location </h5>
+ <table class="table table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Shop Name</th>
+      <th scope="col">Distance</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in shops %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <th scope="row">{{ item.name }}</th>
+      <th scope="row">{{ item.distance }}</th>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+
+</div>
+
+{% endif %}
+{% endblock content %}
