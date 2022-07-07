@@ -27,3 +27,15 @@
   * Then run the following command to migrate `python manage.py migrate`. It will create Shop objects based on the data files named `shop/data/gulshan_shops.json`
 
 * Then run the command `python manage.py runserver`
+
+## Input and Output
+* User need to input his/her address. If nearest location found then a table contain list will be shows will be shown with a map also.
+
+![image](/media/pranta/D/geoDjango/geoDjango/input&table.png)
+
+
+![image](/media/pranta/D/geoDjango/geoDjango/map.png)
+
+* If not found then an error page will be shown.
+
+![image](/media/pranta/D/geoDjango/geoDjango/Screenshot from 2022-07-07 17-56-02.png)
