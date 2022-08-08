@@ -1,6 +1,6 @@
 from django.views import generic
 from django.contrib.gis.geos import fromstr, Point
-from django.contrib.gis.db.models.functions import Distance
+from django.contrib.gis.measure import D
 
 from geopy.geocoders import Nominatim
 import folium
@@ -28,8 +28,11 @@ class NearestShopView(generic.View):
             latitude = location.latitude
             longitude = location.longitude
             user_location = Point(longitude, latitude, srid=4326)
-            queryset = Shop.objects.annotate(distance=Distance('location', user_location)).order_by('distance')[
-                       0:10]
+            # queryset = Shop.objects.annotate(distance=Distance('location', user_location)).order_by('distance')[
+            #            0:10]
+
+            # shop near 100 meter
+            queryset = Shop.objects.filter(location__distance_lte=(user_location, D(km=0.1)))
 
             # folium map
             m = folium.Map(width=800, height=500, location=[latitude, longitude], zoom_start=12)
